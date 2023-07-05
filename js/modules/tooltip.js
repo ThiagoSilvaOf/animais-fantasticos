@@ -1,27 +1,26 @@
-export default class Tooltip{
-  constructor(tooltips){
-     this.tooltips = document.querySelectorAll(tooltips);
+export default class Tooltip {
+  constructor(tooltips) {
+    this.tooltips = document.querySelectorAll(tooltips);
 
-     this.onMouseMove = this.onMouseMove.bind(this);
-     this.onMouseleave = this.onMouseleave.bind(this);
-     this.onMouseover = this.onMouseover.bind(this);
-  };
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseleave = this.onMouseleave.bind(this);
+    this.onMouseover = this.onMouseover.bind(this);
+  }
 
   //Move a tooltip com base em seus estilos
   //de acordo com a posição do mouse
-  onMouseMove(event){
+  onMouseMove(event) {
     this.tooltipBox.style.top = event.pageY + 20 + "px";
 
-    if(event.pageX + 240 > window.innerWidth){
-    this.tooltipBox.style.left = event.pageX - 180 + "px";
-    }else{
+    if (event.pageX + 240 > window.innerWidth) {
+      this.tooltipBox.style.left = event.pageX - 180 + "px";
+    } else {
       this.tooltipBox.style.left = event.pageX + 20 + "px";
     }
-   
-  } 
- 
+  }
+
   //Remove os eventos mouseleave e mouseover da tooltip
-  onMouseleave(){
+  onMouseleave() {
     this.tooltipBox.remove();
     this.tooltipBox.removeEventListener("mouseleave", this.onMouseleave);
     this.tooltipBox.removeEventListener("mousemove", this.onMouseMove);
@@ -47,17 +46,16 @@ export default class Tooltip{
   }
 
   //Adiciona os eventos de mouseover a cada tooltip
-  addTooltipsEvent(){
+  addTooltipsEvent() {
     this.tooltips.forEach((item) => {
       item.addEventListener("mouseover", this.onMouseover);
     });
   }
-  
-  init(){
-    if(this.tooltips.length){
+
+  init() {
+    if (this.tooltips.length) {
       this.addTooltipsEvent();
     }
     return this;
   }
-  
 }
