@@ -17,7 +17,9 @@
 
 .modal {
   background: white;
-  min-width: 300px;
+  width: 80vw;
+  max-width: 600px;
+  box-sizing: border-box;
   padding: 40px;
   border: 10px solid #FB5;
   box-shadow: 0 0 0 10px white;
@@ -80,3 +82,4 @@
   margin-top: 1rem;
   font-weight: bold;
 }
+
