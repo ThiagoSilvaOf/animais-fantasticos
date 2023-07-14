@@ -8,6 +8,7 @@ import MenuMobile from './modules/menu-mobile.js';
 import Funcionamento from './modules/funcionamento.js';
 import animaisFetch from './modules/animais-fetch.js';
 import ScrollAnima from './modules/scroll-anima.js';
+import {SlideNav} from './modules/slide.js';
 
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
@@ -38,4 +39,8 @@ const funcionamento = new Funcionamento("[data-semana]");
 funcionamento.init();
 
 animaisFetch();
+
+const slide = new SlideNav(".slide",".slide-wrapper");
+slide.init();
+slide.addControl(".custom-controls");
 
